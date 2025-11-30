@@ -111,12 +111,12 @@ class TestSpaceColonizationAlgorithm:
         # Add close attractor
         algo.add_attractors(np.array([[2.0, 0.0]]))
         
-        assert algo.active_attractors[0] is True
+        assert bool(algo.active_attractors[0]) is True
         
         # Growth step should kill it
         algo.grow_step()
         
-        assert algo.active_attractors[0] is False
+        assert bool(algo.active_attractors[0]) is False
     
     def test_full_growth(self):
         """Test full growth until completion."""

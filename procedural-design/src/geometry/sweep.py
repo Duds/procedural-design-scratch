@@ -1,6 +1,6 @@
 """Path sweeping operations for creating tubular meshes."""
 
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Dict
 import numpy as np
 from scipy.spatial.transform import Rotation
 import trimesh

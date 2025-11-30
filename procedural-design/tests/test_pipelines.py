@@ -6,10 +6,8 @@ import sys
 from pathlib import Path
 import tempfile
 
-sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
-
-from pipelines.vase import VasePipeline, VaseConfig
-from pipelines.moss_pole import MossPolePipeline, MossPoleConfig
+from src.pipelines.vase import VasePipeline, VaseConfig
+from src.pipelines.moss_pole import MossPolePipeline, MossPoleConfig
 
 
 class TestVasePipeline:

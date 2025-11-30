@@ -8,7 +8,7 @@ from ..algorithms.gray_scott import GrayScottConfig
 from ..algorithms.space_colonization import SpaceColonizationConfig
 from ..pipelines.vase import VasePipeline, VaseConfig
 from ..pipelines.moss_pole import MossPolePipeline, MossPoleConfig
-from ..geometry.mesh_ops import validate_mesh
+from ..geometry.mesh_operations import validate_mesh
 import trimesh
 
 

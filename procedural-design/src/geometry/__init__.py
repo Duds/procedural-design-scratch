@@ -13,6 +13,12 @@ from .mesh_operations import (
     validate_mesh,
 )
 from .tube_sweep import sweep_tube, create_profile
+from .boundaries import (
+    make_vase_mask,
+    make_cylinder_mask,
+    make_sphere_mask,
+    make_box_mask,
+)
 
 __all__ = [
     'create_cylinder',
@@ -25,4 +31,8 @@ __all__ = [
     'validate_mesh',
     'sweep_tube',
     'create_profile',
+    'make_vase_mask',
+    'make_cylinder_mask',
+    'make_sphere_mask',
+    'make_box_mask',
 ]

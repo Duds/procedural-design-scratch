@@ -3,9 +3,9 @@
 import pytest
 import numpy as np
 import trimesh
-from src.geometry.primitives import create_cylinder, create_hollow_cylinder, create_rounded_square_path
+from src.geometry.primitives import create_cylinder, create_hollow_cylinder, rounded_square_profile
 from src.geometry.isosurface import extract_isosurface, field_from_function
-from src.geometry.mesh_ops import validate_mesh, smooth_mesh
+from src.geometry.mesh_operations import validate_mesh, smooth_mesh
 from src.geometry.sweep import sweep_circle_along_path
 
 
@@ -14,7 +14,7 @@ class TestPrimitives:
     
     def test_create_cylinder(self):
         """Test cylinder creation."""
-        mesh = create_cylinder(radius=10.0, height=50.0, n_sides=32, closed=True)
+        mesh = create_cylinder(radius=10.0, height=50.0, sections=32, closed=True)
         
         assert isinstance(mesh, trimesh.Trimesh)
         assert len(mesh.vertices) > 0
@@ -27,7 +27,7 @@ class TestPrimitives:
             outer_radius=10.0,
             inner_radius=8.0,
             height=50.0,
-            n_sides=32
+            sections=32
         )
         
         assert isinstance(mesh, trimesh.Trimesh)
@@ -41,7 +41,7 @@ class TestPrimitives:
     
     def test_create_rounded_square_path(self):
         """Test rounded square path generation."""
-        path = create_rounded_square_path(side=100.0, corner_radius=20.0, n_per_edge=64)
+        path = rounded_square_profile(side=100.0, corner_radius=20.0, points_per_edge=64)
         
         assert isinstance(path, np.ndarray)
         assert path.shape[1] == 2  # 2D points
@@ -109,7 +109,7 @@ class TestMeshOps:
     @pytest.fixture
     def simple_mesh(self):
         """Create a simple test mesh."""
-        return create_cylinder(radius=10.0, height=20.0, n_sides=16, closed=True)
+        return create_cylinder(radius=10.0, height=20.0, sections=16, closed=True)
     
     def test_validate_mesh(self, simple_mesh):
         """Test mesh validation."""
